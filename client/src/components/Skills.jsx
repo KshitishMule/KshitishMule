@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { SKILLS } from '../data/portfolio';
 
+<<<<<<< HEAD
 // Map all skills into one flat list with category color
 const CATEGORY_COLORS = {
   'Programming & Development': { bg: '#6366f1', light: '#eef2ff' },
@@ -61,14 +62,21 @@ function Hex({ skill, index, inView }) {
   );
 }
 
+=======
+>>>>>>> cc078ae1acb086c3510d671aa4e14772dafc9804
 export default function Skills() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
+<<<<<<< HEAD
     <section id="skills" ref={ref} className="py-24 px-4 bg-gray-50 dark:bg-gray-900/50 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
+=======
+    <section id="skills" ref={ref} className="py-24 px-4 bg-gray-50 dark:bg-gray-900/50">
+      <div className="max-w-6xl mx-auto">
+>>>>>>> cc078ae1acb086c3510d671aa4e14772dafc9804
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -82,6 +90,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
+<<<<<<< HEAD
         {/* Legend */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -104,6 +113,35 @@ export default function Skills() {
         <div className="flex flex-wrap justify-center" style={{ gap: '6px 2px' }}>
           {allSkills.map((skill, i) => (
             <Hex key={skill.name} skill={skill} index={i} inView={inView} />
+=======
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SKILLS.map((group, gi) => (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: gi * 0.1, duration: 0.5 }}
+              className="card"
+            >
+              <h3 className="font-display font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full" />
+                {group.category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((skill, si) => (
+                  <motion.span
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: gi * 0.1 + si * 0.05, duration: 0.3 }}
+                    className="tag hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+>>>>>>> cc078ae1acb086c3510d671aa4e14772dafc9804
           ))}
         </div>
       </div>
